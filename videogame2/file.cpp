@@ -7,15 +7,20 @@ File::File()
 
 void File::add()
 {
-    cout << "Nombre: " << endl;
+    cout << "Nombre: ";
     cin >> name;
-    cout << "Gremio: " << endl;
+    cout << "Gremio: ";
     cin >> guild;
-    cout << "Género: " << endl;
+    cout << "Género: ";
     cin >> gender;
-    cout << "Tipo: " << endl;
+    cout << "Tipo: ";
     cin >> type;
-    c = new Character(name, guild, gender, type);
+    Character c(name, guild, gender, type);
+    fstream file("characters.bin", ios::out | ios::binary | ios::app);
+    if (file.fail())
+        cerr << "Hubo un error escribiendo el archivo de personajes" << endl;
+    file.write(reinterpret_cast<char *>(&c), sizeof(c));
+    file.close();
 }
 
 bool File::authenticate()

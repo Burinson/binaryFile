@@ -13,21 +13,22 @@ void Menu::show()
              << "2) Acceder a un personaje" << endl
              << "3) Eliminar personaje" << endl
              << "0) Salir" << endl;
+        cin >> op;
         switch(op)
         {
             case 1:
             {
-            f->add();
+            file.add();
             break;
             }
             case 2:
             {
-            f->authenticate();
+            file.authenticate();
             break;
             }
             case 3:
             {
-            f->remove();
+            file.remove();
             break;
             }
             default:
