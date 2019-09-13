@@ -8,22 +8,15 @@ using namespace std;
 class File
 {
 public:
+    friend class Character;
     File();
     void add();
     void load();
-    bool authenticate();
-    void modify();
+    void authenticate(char * search);
+    void modify(char *searchName);
     void show();
     void complete();
     void remove();
-private:
-    Character *c;
-    string name;
-    string guild;
-    string gender;
-    string type;
-    size_t exp;
-    size_t level;
 };
 
 #endif // FILE_H

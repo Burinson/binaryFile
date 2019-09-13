@@ -8,8 +8,6 @@ class Menu
 public:
     Menu();
     void show();
-private:
-    File file;
 };
 
 #endif // MENU_H
